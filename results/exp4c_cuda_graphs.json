@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "date": "2026-10-13 02:52:02",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "torch": "2.13.0+cu130",
+    "triton": "3.7.1",
+    "config": {
+      "d_model": 64,
+      "n_heads": 4,
+      "n_layers": 6,
+      "N": 1024,
+      "B": 16,
+      "block_steps": 120,
+      "block_warmup": 25,
+      "rounds": 3,
+      "schedule": "rotated interleave (lo-start x3, hi-start x3)",
+      "seed": 42,
+      "precision": "BF16 autocast, matmul TF32 off"
+    },
+    "purpose": "Counterfactual to exp4b: if the 6-layer stack is launch-serialised, CUDA-graph replay must surface the ~4.2 ms kernel-level skip saving."
+  },
+  "per_tau": {
+    "-0.5": {
+      "graph_grad_replay_rel_diff": 0.00552486
+    },
+    "2.5": {
+      "graph_grad_replay_rel_diff": 0.0
+    }
+  },
+  "pair_deltas": [
+    -7.2378,
+    -7.1835,
+    -7.1775
+  ],
+  "combined": {
+    "-0.5": {
+      "graph": {
+        "block_walls": [
+          12.166,
+          12.068,
+          12.0905
+        ],
+        "wall_grand_mean": 12.1082,
+        "wall_grand_sem": 0.02964,
+        "event_grand_mean": 11.9565
+      },
+      "eager": {
+        "block_walls": [
+          22.1539,
+          20.5638,
+          21.664
+        ],
+        "wall_grand_mean": 21.4606,
+        "wall_grand_sem": 0.47016,
+        "event_grand_mean": 21.3702
+      }
+    },
+    "2.5": {
+      "graph": {
+        "block_walls": [
+          4.9282,
+          4.8845,
+          4.913
+        ],
+        "wall_grand_mean": 4.9086,
+        "wall_grand_sem": 0.01281,
+        "event_grand_mean": 4.7724
+      },
+      "eager": {
+        "block_walls": [
+          23.2994,
+          22.4313,
+          24.7571
+        ],
+        "wall_grand_mean": 23.4959,
+        "wall_grand_sem": 0.67855,
+        "event_grand_mean": 23.3893
+      }
+    }
+  },
+  "attribution": {
+    "graph_wall_delta_high_minus_low_ms": -7.1996,
+    "graph_wall_delta_sem_ms": 0.0192,
+    "eager_wall_delta_high_minus_low_ms": 2.0353,
+    "graph_speedup_vs_eager_neg05": 1.772,
+    "graph_speedup_vs_eager_p25": 4.787,
+    "kernel_saving_prediction_ms": 4.2
+  }
+}

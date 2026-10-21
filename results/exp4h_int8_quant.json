@@ -1,0 +1,240 @@
+{
+  "protocol": "C5: per-Linear input absmax/kurtosis + residual stats; sink mass on pos 0; per-token symmetric INT8 quantize-dequantize on every nn.Linear input (activation-only emulation) then test PPL. FP and INT8-sim in one process.",
+  "runs": {
+    "d64_softmax_50k": {
+      "run_id": "d64_softmax_50k",
+      "variant": "softmax",
+      "d_model": 64,
+      "ckpt": "<checkpoint_path>",
+      "outliers": {
+        "attn.qkv": {
+          "absmax_max": 5.798219680786133,
+          "kurtosis_mean": 3.488028792043527
+        },
+        "attn.out": {
+          "absmax_max": 1.15625,
+          "kurtosis_mean": 4.358932075401147
+        },
+        "ffn-in": {
+          "absmax_max": 4.8408637046813965,
+          "kurtosis_mean": 2.9657118692994118
+        },
+        "ffn-out": {
+          "absmax_max": 4.65625,
+          "kurtosis_mean": 16.49280233681202
+        },
+        "head": {
+          "absmax_max": 7.255079746246338,
+          "kurtosis_mean": 2.8473571985960007
+        },
+        "residual": {
+          "absmax_max": 5.030086040496826,
+          "kurtosis_mean": 4.173318907618523
+        }
+      },
+      "sink": {
+        "per_layer": [
+          0.02373878424987197,
+          0.02424519881606102,
+          0.017297325190156698,
+          0.012794645968824625,
+          0.013036954915151,
+          0.014881408074870706
+        ],
+        "mean": 0.01766571953582267,
+        "max_layer": 0.02424519881606102
+      },
+      "test_ppl_fp": 117.15289531632556,
+      "test_ppl_int8sim": 117.27190849145322,
+      "int8_degradation": 0.0010158790767083037
+    },
+    "d64_pn_50k": {
+      "run_id": "d64_pn_50k",
+      "variant": "pn_fir_tau",
+      "d_model": 64,
+      "ckpt": "<checkpoint_path>",
+      "outliers": {
+        "attn.qkv": {
+          "absmax_max": 3.59910249710083,
+          "kurtosis_mean": 3.0058572640021644
+        },
+        "attn.out": {
+          "absmax_max": 1.078125,
+          "kurtosis_mean": 4.493445999920368
+        },
+        "ffn-in": {
+          "absmax_max": 4.53078031539917,
+          "kurtosis_mean": 2.995349253217379
+        },
+        "ffn-out": {
+          "absmax_max": 4.0,
+          "kurtosis_mean": 15.772731492916742
+        },
+        "head": {
+          "absmax_max": 7.141764163970947,
+          "kurtosis_mean": 2.839078351855278
+        },
+        "residual": {
+          "absmax_max": 4.082047462463379,
+          "kurtosis_mean": 4.221967771649361
+        }
+      },
+      "sink": {
+        "per_layer": [
+          0.010134934214875102,
+          0.0011877644283231348,
+          0.0023120748228393495,
+          0.001346833276329562,
+          0.002327463123947382,
+          0.0012037246342515573
+        ],
+        "mean": 0.003085465750094348,
+        "max_layer": 0.010134934214875102
+      },
+      "test_ppl_fp": 114.24554045090478,
+      "test_ppl_int8sim": 114.35011483617066,
+      "int8_degradation": 0.0009153476350423073
+    },
+    "d256_softmax_2k4": {
+      "run_id": "d256_softmax_2k4",
+      "variant": "softmax",
+      "d_model": 256,
+      "ckpt": "/mnt/k/Projects/Publications/paper_01_anti_decoy_pnfirtau/results/checkpoints_c3/softmax/latest.pt",
+      "outliers": {
+        "attn.qkv": {
+          "absmax_max": 10.548727035522461,
+          "kurtosis_mean": 44.79289673268795
+        },
+        "attn.out": {
+          "absmax_max": 6.25,
+          "kurtosis_mean": 4.680760170022647
+        },
+        "ffn-in": {
+          "absmax_max": 11.789080619812012,
+          "kurtosis_mean": 46.59950187802315
+        },
+        "ffn-out": {
+          "absmax_max": 18.625,
+          "kurtosis_mean": 5.633405894041061
+        },
+        "head": {
+          "absmax_max": 1.780928373336792,
+          "kurtosis_mean": 6.365478754043579
+        },
+        "residual": {
+          "absmax_max": 207.26553344726562,
+          "kurtosis_mean": 85.61177635192871
+        }
+      },
+      "sink": {
+        "per_layer": [
+          0.014464154141023755,
+          0.01326157059520483,
+          0.012960252119228244,
+          0.009971982566639781,
+          0.010349356336519122,
+          0.012469555484130979
+        ],
+        "mean": 0.012246145207124451,
+        "max_layer": 0.014464154141023755
+      },
+      "test_ppl_fp": 379.80889716139455,
+      "test_ppl_int8sim": 380.9578694925968,
+      "int8_degradation": 0.0030251327438335363
+    },
+    "d256_smfir_2k4": {
+      "run_id": "d256_smfir_2k4",
+      "variant": "sm_fir",
+      "d_model": 256,
+      "ckpt": "/mnt/k/Projects/Publications/paper_01_anti_decoy_pnfirtau/results/checkpoints_c3/sm_fir/latest.pt",
+      "outliers": {
+        "attn.qkv": {
+          "absmax_max": 11.510700225830078,
+          "kurtosis_mean": 58.8926037500302
+        },
+        "attn.out": {
+          "absmax_max": 7.53125,
+          "kurtosis_mean": 5.269758616884549
+        },
+        "ffn-in": {
+          "absmax_max": 12.893072128295898,
+          "kurtosis_mean": 60.08464974164963
+        },
+        "ffn-out": {
+          "absmax_max": 15.0,
+          "kurtosis_mean": 5.864396825432777
+        },
+        "head": {
+          "absmax_max": 1.7792410850524902,
+          "kurtosis_mean": 7.0065852999687195
+        },
+        "residual": {
+          "absmax_max": 219.6824951171875,
+          "kurtosis_mean": 119.6858139038086
+        }
+      },
+      "sink": {
+        "per_layer": [
+          0.013220141874626279,
+          0.017551999539136887,
+          0.011397990863770247,
+          0.01798748830333352,
+          0.025729301385581493,
+          0.028535484801977873
+        ],
+        "mean": 0.01907040112807105,
+        "max_layer": 0.028535484801977873
+      },
+      "test_ppl_fp": 359.47190712326795,
+      "test_ppl_int8sim": 360.7540134605767,
+      "int8_degradation": 0.0035666384824588615
+    },
+    "d256_pn_2k4": {
+      "run_id": "d256_pn_2k4",
+      "variant": "pn_fir_tau",
+      "d_model": 256,
+      "ckpt": "/mnt/k/Projects/Publications/paper_01_anti_decoy_pnfirtau/results/checkpoints_c3/pn_fir_tau/latest.pt",
+      "outliers": {
+        "attn.qkv": {
+          "absmax_max": 11.040539741516113,
+          "kurtosis_mean": 33.09792938828468
+        },
+        "attn.out": {
+          "absmax_max": 5.53125,
+          "kurtosis_mean": 5.1220555156469345
+        },
+        "ffn-in": {
+          "absmax_max": 11.217855453491211,
+          "kurtosis_mean": 33.77638062338034
+        },
+        "ffn-out": {
+          "absmax_max": 12.3125,
+          "kurtosis_mean": 4.988188803195953
+        },
+        "head": {
+          "absmax_max": 2.355642557144165,
+          "kurtosis_mean": 7.2898759841918945
+        },
+        "residual": {
+          "absmax_max": 176.5057373046875,
+          "kurtosis_mean": 78.53713035583496
+        }
+      },
+      "sink": {
+        "per_layer": [
+          0.005037827300839126,
+          0.0015303526597563177,
+          0.0007870474801165983,
+          0.0002161424927180633,
+          0.00018090141384163871,
+          0.00013480362758855335
+        ],
+        "mean": 0.0013145124958100496,
+        "max_layer": 0.005037827300839126
+      },
+      "test_ppl_fp": 377.373316689348,
+      "test_ppl_int8sim": 378.88236598171653,
+      "int8_degradation": 0.003998823514092864
+    }
+  }
+}

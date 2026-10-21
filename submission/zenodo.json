@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "title": "Attention with a Calibrated Off Switch: Causal FIR Key Smoothing, the Score-Shift Pathology, and Selective Silence in Rectified Attention (pn_fir_tau)",
+    "upload_type": "publication",
+    "publication_type": "preprint",
+    "description": "<p>Softmax attention cannot say \"nothing found\": a simplex-constrained head must distribute 1.000 units of context weight even when no key matches the query, and pre-trained models pay with attention sinks, massive outliers that degrade low-bit quantization, and RAG-style hallucinations on unanswerable queries. The off-switch mechanism itself is established prior art: ReLA replaces Softmax with ReLU and its heads \"attend to nothing\"; Softpick scales rectified normalization to 340M–1.8B with a 0% sink rate. The open question is the interaction layer audited here. A parameter-free 7-tap causal FIR low-pass filter (σ = 2.0) applied strictly to the key stream K lets one layer bind a queried key onto the adjacent value slot, lifting non-bijective single-layer associative recall from 44.5% ± 0.9% to 100.0% ± 0.0% and removing exact-decoy vulnerability on the legacy benchmark (Δ = 0.000 at decoy noise ε ∈ {0.05, 0.2, 0.5, 1.0}). The same smoothing shifts scores downward and starves rectification: fixed-τ=0 power-norm falls to 64.4% ± 6.8% with 91.3% ± 8.6% negative scores and 44.5% ± 23.0% dead rows; Softmax masks this shift (translation-invariant), rectification does not (Proposition 1). One learnable threshold τ per layer (pn_fir_tau) restores 100.0% recall and keeps unanswerable rows silent under pure cross-entropy (ΣW_unans = 0.002 ± 0.002 vs. 0.100 ± 0.005 for virtual sinks), reaches matched-precision WikiText-2 parity on 2,400 steps (within 0.3%) and a matched-precision 50k win consistent across 3 seeds (−2.22 ± 0.46 val / −2.33 ± 0.49 test PPL). We release fused Triton kernels (no exp(), O(N) attention VRAM) and a full measurement record, including an instrumented retraction of our own earlier latency claim.</p><p><strong>Reproducibility package:</strong> self-contained source code, 12 experiment suites, raw JSON results, and automated figure-generation pipeline are included in the archive attached to this record.</p>",
+    "creators": [
+      {
+        "name": "Zhukov, Maxim",
+        "affiliation": "Independent Research",
+        "orcid": "0009-0005-9238-3778"
+      }
+    ],
+    "keywords": [
+      "attention normalization",
+      "sub-simplex attention",
+      "selective silence",
+      "attention sinks",
+      "causal FIR filtering",
+      "induction heads",
+      "Triton kernels",
+      "FlashAttention",
+      "language modeling",
+      "quantization outliers"
+    ],
+    "license": "cc-by-4.0",
+    "language": "eng",
+    "version": "1.0",
+    "publication_date": "2026-10-20",
+    "access_right": "open",
+    "notes": "22 pages, 18 figures, 12 tables. Preprint DOI: 10.21203/rs.3.rs-11435949/v1. Reproducibility package included.",
+    "related_identifiers": [
+      {
+        "identifier": "10.21203/rs.3.rs-11435949/v1",
+        "relation": "isSupplementTo",
+        "scheme": "doi"
+      }
+    ]
+  }
+}
