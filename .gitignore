@@ -14,6 +14,9 @@ ENV/
 *.aux
 *.out
 *.toc
+*.synctex.gz
+*.xdv
+paper_en_*.jpg
 checkpoints/
 results/checkpoints_c3/
 hf_cache/
