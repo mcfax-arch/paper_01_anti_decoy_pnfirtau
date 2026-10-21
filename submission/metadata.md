@@ -8,6 +8,9 @@ Attention with a Calibrated Off Switch: Causal FIR Key Smoothing, the Score-Shif
 **DOI (preprint):**
 10.21203/rs.3.rs-11435949/v1
 
+**Zenodo DOI (software package):**
+10.5281/zenodo.23545302 (concept DOI: 10.5281/zenodo.23545301)
+
 **Author:**
 Maxim Zhukov
 

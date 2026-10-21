@@ -2,7 +2,7 @@
 
 Self-contained codebase, benchmark suite, raw experimental outputs (`results/*.json`), and figure-generation pipeline for the preprint **"Attention with a Calibrated Off Switch: Causal FIR Key Smoothing, the Score-Shift Pathology, and Selective Silence in Rectified Attention (`pn_fir_tau`)"** by **Maxim Zhukov** (ORCID [0009-0005-9238-3778](https://orcid.org/0009-0005-9238-3778), Independent Research).
 
-Current manuscript: **22 pages, 18 figures, 12 tables**; built from `paper_en.tex` with Tectonic (see "Build the PDF" below). **Preprint DOI:** [10.21203/rs.3.rs-11435949/v1](https://doi.org/10.21203/rs.3.rs-11435949/v1) (Research Square, 2026). The Scope paragraph in §1 frames the work as a controlled mechanistic study on deliberately small sandboxes, not an LLM-scale claim.
+Current manuscript: **22 pages, 18 figures, 12 tables**; built from `paper_en.tex` with Tectonic (see "Build the PDF" below). **Preprint DOI:** [10.21203/rs.3.rs-11435949/v1](https://doi.org/10.21203/rs.3.rs-11435949/v1) (Research Square, 2026). **Reproducibility package DOI:** [10.5281/zenodo.23545302](https://doi.org/10.5281/zenodo.23545302) (Zenodo, v1.0.0; concept DOI [10.5281/zenodo.23545301](https://doi.org/10.5281/zenodo.23545301)). The Scope paragraph in §1 frames the work as a controlled mechanistic study on deliberately small sandboxes, not an LLM-scale claim.
 
 ---
 

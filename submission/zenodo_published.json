@@ -1,0 +1,11 @@
+{
+  "doi": "10.5281/zenodo.23545302",
+  "concept_doi": "10.5281/zenodo.23545301",
+  "url": "https://zenodo.org/records/23545302",
+  "version": "1.0.0",
+  "published": "2026-10-21",
+  "resource_type": "Software",
+  "license": "CC BY 4.0",
+  "related_preprint_doi": "10.21203/rs.3.rs-11435949/v1",
+  "github": "https://github.com/mcfax-arch/paper_01_anti_decoy_pnfirtau"
+}
