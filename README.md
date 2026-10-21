@@ -1,5 +1,9 @@
 # Attention with a Calibrated Off Switch: Causal FIR Key Smoothing, the Score-Shift Pathology, and Selective Silence in Rectified Attention (`pn_fir_tau`)
 
+[![Preprint DOI](https://img.shields.io/badge/DOI-10.21203%2Frs.3.rs--11435949%2Fv1-blue)](https://doi.org/10.21203/rs.3.rs-11435949/v1)
+[![Software DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23545301.svg)](https://doi.org/10.5281/zenodo.23545302)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Self-contained codebase, benchmark suite, raw experimental outputs (`results/*.json`), and figure-generation pipeline for the preprint **"Attention with a Calibrated Off Switch: Causal FIR Key Smoothing, the Score-Shift Pathology, and Selective Silence in Rectified Attention (`pn_fir_tau`)"** by **Maxim Zhukov** (ORCID [0009-0005-9238-3778](https://orcid.org/0009-0005-9238-3778), Independent Research).
 
 Current manuscript: **22 pages, 18 figures, 12 tables**; built from `paper_en.tex` with Tectonic (see "Build the PDF" below). **Preprint DOI:** [10.21203/rs.3.rs-11435949/v1](https://doi.org/10.21203/rs.3.rs-11435949/v1) (Research Square, 2026). **Reproducibility package DOI:** [10.5281/zenodo.23545302](https://doi.org/10.5281/zenodo.23545302) (Zenodo, v1.0.0; concept DOI [10.5281/zenodo.23545301](https://doi.org/10.5281/zenodo.23545301)). The Scope paragraph in §1 frames the work as a controlled mechanistic study on deliberately small sandboxes, not an LLM-scale claim.
@@ -167,3 +171,8 @@ The final build has **0 errors, 0 undefined references/citations, 22 pages**. Th
 ## Submission metadata
 
 `submission/` contains ready-to-paste metadata for Zenodo/Research Square (`metadata.md`, `zenodo.json`, `researchsquare_metadata.md`), the plain-text abstract, cover letters, and `paper01_reproducibility_package.zip` (source, figures, results, scripts; checkpoints excluded). The preprint is published at [doi:10.21203/rs.3.rs-11435949/v1](https://doi.org/10.21203/rs.3.rs-11435949/v1).
+
+## License
+
+- **Code** (`src/`, `experiments/`, `*.py`) — MIT License, see [LICENSE](LICENSE).
+- **Manuscript and figures** (`paper_en.tex`, `paper_en.md`, `paper_en.pdf`, `paper_en.docx`, `paper_ru.md`, `figures/`) — CC BY 4.0, matching the published preprint and the Zenodo record.
