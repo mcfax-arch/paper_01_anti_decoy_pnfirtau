@@ -60,8 +60,19 @@ def architecture_portrait():
     arrow(ax, 0.50, 0.625, 0.50, 0.580)
     arrow(ax, 0.50, 0.515, 0.50, 0.470)
     arrow(ax, 0.50, 0.405, 0.50, 0.360)
-    ax.text(0.50, 0.710, "Q and V bypass the filter (unfiltered)", fontsize=9,
-            color="#555555", ha="center", transform=ax.transAxes)
+
+    # Q/V bypass around the FIR block: the filter sees K only
+    for x_from, x_margin, x_to in [(0.14, 0.09, 0.14), (0.86, 0.91, 0.86)]:
+        ax.plot([x_from, x_margin, x_margin], [0.735, 0.735, 0.548],
+                color="#6b6b6b", lw=1.4, transform=ax.transAxes, zorder=1)
+        ax.annotate("", xy=(x_to, 0.548), xytext=(x_margin, 0.548),
+                    xycoords=ax.transAxes, textcoords=ax.transAxes,
+                    arrowprops=dict(arrowstyle="-|>", color="#6b6b6b", lw=1.4),
+                    zorder=1)
+    ax.text(0.065, 0.645, "Q unfiltered", fontsize=8.5, color="#555555",
+            rotation=90, ha="center", va="center", transform=ax.transAxes)
+    ax.text(0.935, 0.645, "V unfiltered", fontsize=8.5, color="#555555",
+            rotation=270, ha="center", va="center", transform=ax.transAxes)
 
     ax.text(0.04, 0.270, "What this buys you", fontsize=16, fontweight="bold",
             transform=ax.transAxes, va="top")
